@@ -2,11 +2,11 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Chrome",
-      "type": "chrome",
+      "type": "edge",
       "request": "launch",
+      "name": "Launch Edge against localhost",
       "url": "http://localhost:8080",
-      "webRoot": "${workspaceRoot}/src",
+      "webRoot": "${workspaceFolder}/src",
       "userDataDir": "${workspaceRoot}/.chrome",
       "sourceMapPathOverrides": {
         "webpack:///./src/*": "${webRoot}/*"
