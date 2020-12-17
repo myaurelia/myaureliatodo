@@ -1,4 +1,4 @@
-# `b2w-aurelia-test`
+# `b2w-aurelia-test2`
 
 This project is bootstrapped by [aurelia-cli](https://github.com/aurelia/cli).
 

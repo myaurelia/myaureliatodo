@@ -1,5 +1,5 @@
 {
-  "name": "b2w-aurelia-test",
+  "name": "b2w-aurelia-test2",
   "description": "An Aurelia client application.",
   "version": "0.1.0",
   "repository": {
@@ -8,10 +8,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "aurelia-animator-css": "^1.0.4",
     "aurelia-bootstrapper": "^2.3.3",
-    "bootstrap": "^4.5.3",
-    "font-awesome": "^4.7.0"
+    "aurelia-animator-css": "^1.0.4"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
