@@ -5,7 +5,7 @@ export class App {
   todos: ToDo[];
   todoDescription: string;
   constructor() {
-    this.heading = 'Todos';
+    this.heading = 'a to do list';
     this.todos = [];
     this.todoDescription = '';
   }
