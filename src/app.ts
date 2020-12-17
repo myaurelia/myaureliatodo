@@ -21,7 +21,7 @@ export class App {
     }
   }
 
-  removeTodo(todo) {
+  removeTodo(todo: ToDo) {
     let index = this.todos.indexOf(todo);
     if (index !== -1) {
       this.todos.splice(index, 1);
