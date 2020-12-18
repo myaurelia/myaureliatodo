@@ -9,6 +9,7 @@ export class App {
   public longMessage = '';
   public container: Container;
   public component: Component;
+  public vm: any;
 
   constructor() {
     for (let i: number = 0; i < 100000; i++) {
@@ -18,12 +19,12 @@ export class App {
     this.container = this.setupContainer();
     this.component = this.setupComponent();
 
-    console.log({container: this.container });
+    console.log({ container: this.container });
     console.log({ component: this.component });
   }
 
   setupContainer(): Container {
-    const container = 
+    const container =
     {
       id: `grid1`,
       col: `col`,
@@ -57,7 +58,7 @@ export class App {
   }
 
   private setupParams(): Params {
-    const params = 
+    const params =
     {
       label: `Primer menu desplegable`,
       helpText: `Elija un numero de la lista`,
@@ -69,13 +70,43 @@ export class App {
   }
 
   private setupComponent(): Component {
-    const component = 
+    const component =
     {
       type: `dropdown`,
       target: `grid1`,
       params: this.setupParams()
     }
     return component;
+  }
+
+  private validate() {
+    var isValid = true;
+    for (let i = 0; i < this.vm.formElements.length; i++) {
+      if (!this.vm.formElements[i].isValid()) {
+        isValid = false;
+      }
+      console.log(this.vm.formElements[i].value);
+    }
+    console.log({ valid: isValid });
+  }
+
+  private reset() {
+    for (let i = 0; i < this.vm.formElements.length; i++) {
+      this.vm.formElements[i].clear();
+    }
+  }
+
+  private setValue(value) {
+    this.vm.formElements.find(function (element) {
+      return element.id === "new";
+    }).setValue(value);
+  }
+
+  private createNewGuid(): string {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
   }
 
 }
