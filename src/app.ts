@@ -1,4 +1,3 @@
-import { bindable } from 'aurelia-framework';
 import { Component } from './component';
 import { Container } from './container';
 import { Option } from './option';
