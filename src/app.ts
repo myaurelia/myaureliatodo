@@ -18,6 +18,8 @@ export class App {
   }
 
   async activate() {
+    this.container = this.setupContainer();
+    this.component = this.setupComponent();
     console.log({ container: this.container });
     console.log({ component: this.component });
   }
