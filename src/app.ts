@@ -24,8 +24,7 @@ export class App {
   }
 
   myChangeHandler(newValue, oldValue) {
-    console.log({ oldValue });
-    console.log({ newValue });
+    this.myGuid = oldValue ? newValue : this.createNewGuid();
   }
 
   setupContainer(): Container {
