@@ -14,6 +14,7 @@ export class App {
   constructor() {
     for (let i: number = 0; i < 100000; i++) {
       this.longMessage += `I like potatoes. `;
+      console.log(`${this.createNewGuid()}`);
     }
 
     this.container = this.setupContainer();
