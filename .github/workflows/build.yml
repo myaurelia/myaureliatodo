@@ -1,0 +1,23 @@
+name: Build aurelia project
+
+on:
+  push
+  pull_request
+  schedule:
+    -cron "0 0 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+  strategy:
+    matrix: 
+      node-versions: [12.x, 14.x]
+
+  steps:
+    - uses: action/checkout@v2
+    - name: Use Node.js ${{ matrix.node_version }}
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: yarn
+    - run: yarn run build --env prod
