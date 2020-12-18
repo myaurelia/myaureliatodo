@@ -1,27 +1,31 @@
+import { bindable } from 'aurelia-framework';
 import { Component } from './component';
 import { Container } from './container';
 import { Option } from './option';
 import { Params } from './params';
+import { observable } from 'aurelia-framework';
 
 export class App {
-
   public message = 'Hello World!';
   public longMessage = '';
+  @observable({ changeHandler: 'myChangeHandler' })
+  myGuid = '';
   public container: Container;
   public component: Component;
   public vm: any;
 
-  constructor() {
-    for (let i: number = 0; i < 100000; i++) {
-      this.longMessage += `I like potatoes. `;
-      console.log(`${this.createNewGuid()}`);
-    }
+  public generateGuids() {
+      this.myGuid = this.createNewGuid();
+  }
 
-    this.container = this.setupContainer();
-    this.component = this.setupComponent();
-
+  async activate() {
     console.log({ container: this.container });
     console.log({ component: this.component });
+  }
+
+  myChangeHandler(newValue, oldValue) {
+    console.log({ oldValue });
+    console.log({ newValue });
   }
 
   setupContainer(): Container {
