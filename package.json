@@ -8,8 +8,16 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "@types/jquery": "^3.5.5",
+    "@types/bootstrap": "3.4.0",
     "aurelia-animator-css": "^1.0.4",
-    "aurelia-bootstrapper": "^2.3.3"
+    "aurelia-bootstrapper": "^2.3.3",
+    "aurelia-fetch-client": "^1.0.0",
+    "aurelia-validation": "^1.6.0",
+    "bootstrap": "3.4.1",
+    "jquery": "^3.5.1",
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
     "@types/jest": "^26.0.14",

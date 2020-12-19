@@ -1,8 +1,9 @@
 <template>
-  <require from="./styles.scss"></require>
+  <require from="./styles/styles.scss"></require>
   <h1>${message}</h1>
   <h2>Reticulating splines: ${myGuid}</h2>
-  <button click.delegate="generateGuids()">Reticulate splines</button>
+  <button class="btn btn-primary" click.delegate="generateGuids()">Reticulate splines</button>
+  <input class="form-control" type="text" />
   <p>
     Hello, Ben!
   </p>
