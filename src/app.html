@@ -1,11 +1,12 @@
 <template>
   <require from="./styles/styles.scss"></require>
+    <header></header>
   <div class="page-layout">
     <page-header router.bind="router"></page-header>
     <loading-indicator loading.bind="router.isNavigating"></loading-indicator>
-    <nav-bar router.bind="router"></nav-bar>
     <section class="page-host">
       <router-view></router-view>
     </section>
+    <footer></footer>
   </div>
 </template>
