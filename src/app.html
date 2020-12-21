@@ -1,16 +1,11 @@
 <template>
   <require from="./styles/styles.scss"></require>
-  <h1>${message}</h1>
-  <h2>Reticulating splines: ${myGuid}</h2>
-  <button class="btn btn-primary" click.delegate="generateGuids()">Reticulate splines</button>
-  <input class="form-control" type="text" />
-  <p>
-    Hello, Ben!
-  </p>
+  <div class="page-layout">
+    <page-header router.bind="router"></page-header>
+    <loading-indicator loading.bind="router.isNavigating"></loading-indicator>
+    <nav-bar router.bind="router"></nav-bar>
+    <section class="page-host">
+      <router-view></router-view>
+    </section>
+  </div>
 </template>
-
-Friday, December 18, 2020 7:52:14 AM
-
-
-Friday, December 18, 2020 3:02:58 PM
-
