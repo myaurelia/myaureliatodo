@@ -1,3 +1,15 @@
 .app-header {
-  max-width: 100%;
+  margin: 1em;
+  @media only screen and (max-width: 500px) {
+    .pull-left {
+      float: none;
+      text-align: center;
+      width: 100%;
+    }
+    .pull-right {
+      float: none;
+      text-align: center;
+      width: 100%;
+    }
+  }
 }
