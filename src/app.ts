@@ -1,7 +1,6 @@
 import { PLATFORM } from 'aurelia-pal';
 import { observable, autoinject } from 'aurelia-framework';
 import { Router, RouterConfiguration, NavigationInstruction, Next, Redirect } from 'aurelia-router';
-
 import * as toastr from 'toastr';
 
 @autoinject

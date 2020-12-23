@@ -1,7 +1,7 @@
 <template>
   <require from="./header.scss"></require>
   <div class="app-header">
-        <h4 class="pull-left"><a id="navigation-home-link" href="index.html" target="_self">Home</a></h4>
+        <h4 class="pull-left" if.bind="clientId"><a id="navigation-home-link" href="/home/${clientId}" target="_self">Home</a></h4>
         <h4 class="pull-right"> Having Issues? <a href="mailto:mhonsite@mobilehealth.net" target="_self">Report A Problem </a></h4>
         <div class="clearfix"></div>
   </div>
