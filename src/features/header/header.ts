@@ -7,8 +7,8 @@ export class Header {
   private homeLinkText: string;
   private issuesText: string;
   private issueLinkText: string;
-  private isGuestLabel: string;
-  private isVisitorLabel: string;
+  private guestLabel: string;
+  private registeredUserLabel: string;
 
   constructor(private globals: Globals, private be: BindingEngine) {
     this.customTextLoaded(this.globals.customTextLoaded);
@@ -17,6 +17,15 @@ export class Header {
       .subscribe((newValue: boolean) => {
         this.customTextLoaded(newValue);
       });
+      this.be
+      .propertyObserver(globals, 'breadcrumbLabel')
+      .subscribe((newValue: string) => {
+        this.breadcrumbLoaded(newValue);
+      });
+  }
+
+  breadcrumbLoaded(newValue: string) {
+    this.registeredUserLabel = newValue;
   }
 
   customTextLoaded(newValue: boolean) {
@@ -24,8 +33,8 @@ export class Header {
       this.homeLinkText = this.globals.findCustomText("HomeLink");
       this.issuesText = this.globals.findCustomText("HavingIssues");
       this.issueLinkText = this.globals.findCustomText("ReportProblem");
-      this.isGuestLabel = this.globals.findCustomText("Visitor");
-      this.isVisitorLabel = this.globals.findCustomText("Employee");
+      this.guestLabel = this.globals.findCustomText("Visitor");
+      this.registeredUserLabel = this.globals.findCustomText("Employee");
     }
   }
 }

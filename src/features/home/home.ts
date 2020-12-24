@@ -1,7 +1,7 @@
 import { AnonymousApi } from 'services/api/anonymous-api';
 import { autoinject, bindable, BindingEngine} from 'aurelia-framework';
 import { Globals } from '../../globals';
-import { Campaign, Client } from '../../models/models';
+import { Campaign, Client, NameValues } from '../../models/models';
 import { Router } from 'aurelia-router';
 
 
@@ -12,7 +12,7 @@ export class Home {
   private image: string;
   private companyName: string;
   private welcomeText: string;
-  private visitorButtonText: string;
+  private registeredUserButtonText: string;
   private guestButtonText: string;
   private selectLocationLabel: string;
   private selectedLocationClass: string;
@@ -59,7 +59,7 @@ export class Home {
   customTextLoaded(newValue: boolean): void {
     if (newValue) {
       this.welcomeText = this.globals.findCustomText("Welcome");
-      this.visitorButtonText = this.globals.findCustomText("EmployeeButton");
+      this.registeredUserButtonText = this.globals.findCustomText("EmployeeButton");
       this.guestButtonText = this.globals.findCustomText("GuestButton");
       this.selectLocationLabel = this.globals.findCustomText("SelectLocation");
       this.selectCampaignLabel = this.globals.findCustomText("SelectCampaign");
@@ -70,6 +70,10 @@ export class Home {
 
   async locationChanged(subclientId: string): Promise<void> {
     if (subclientId) {
+      const subclient = this.client.subClients.find(sc => sc.id === subclientId);
+      const nameValues = JSON.parse(subclient.nameValues) as NameValues;
+      this.registeredUserButtonText = this.globals.findCustomText(nameValues.FullValue);
+      this.globals.breadcrumbLabel = this.registeredUserButtonText;
       this.campaigns = await this.api.getCampaigns(subclientId);
       this.selectedLocationClass = "has-success";
       if (!this.campaigns.length) {
