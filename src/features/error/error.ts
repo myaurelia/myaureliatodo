@@ -8,7 +8,6 @@ export class Error {
 
   constructor(private globals: Globals,
     private be: BindingEngine,) {
-    this.customTextLoaded(this.globals.customTextLoaded);
     this.be
       .propertyObserver(globals, 'customTextLoaded')
       .subscribe((newValue: boolean) => {
@@ -18,6 +17,7 @@ export class Error {
 
   private activate(params) {
     this.messageCode = params.code;
+    this.customTextLoaded(this.globals.customTextLoaded);
   }
 
   customTextLoaded(newValue: boolean): void {
