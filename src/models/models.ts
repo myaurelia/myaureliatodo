@@ -1,3 +1,4 @@
+import { NameValues } from './name-values';
 import { CustomText } from './custom-text';
 import { Client } from './client';
 import { SubClient } from './sub-client';
@@ -9,5 +10,6 @@ export {
   Client,
   SubClient,
   Campaign,
-  B2WState
+  B2WState,
+  NameValues
 }

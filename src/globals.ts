@@ -8,6 +8,7 @@ export class Globals {
   public client: Client;
   public location: SubClient;
   public campaign: Campaign;
+  @bindable public breadcrumbLabel: string = "";
 
   @bindable public customTextLoaded: boolean = false;
 

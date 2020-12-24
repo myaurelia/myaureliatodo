@@ -10,4 +10,5 @@ export interface SubClient {
   street1: string;
   street2: string;
   zip: string;
+  nameValues: string;
 }
