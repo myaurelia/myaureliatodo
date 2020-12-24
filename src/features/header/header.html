@@ -1,8 +1,10 @@
 <template>
   <require from="./header.scss"></require>
-  <div class="app-header">
-        <h4 class="pull-left" if.bind="clientId"><a id="navigation-home-link" href="/home/${clientId}" target="_self">${homeLinkText}</a></h4>
-        <h4 class="pull-right"> ${issuesText} <a href="mailto:mhonsite@mobilehealth.net" target="_self">${issueLinkText}</a></h4>
-        <div class="clearfix"></div>
-  </div>
+  <h4 class="pull-left" if.bind="globals.clientId">
+    <a id="navigation-home-link" href="/home/${globals.clientId}" target="_self">${homeLinkText}</a>
+    <span if.bind="globals.isGuest"> / ${isGuestLabel}</span>
+    <span if.bind="globals.isGuest == false"> / ${isVisitorLabel}</span>
+  </h4>
+  <h4 class="pull-right"> ${issuesText} <a href="mailto:mhonsite@mobilehealth.net" target="_self">${issueLinkText}</a></h4>
+  <div class="clearfix"></div>
 </template>

@@ -1,0 +1,38 @@
+footer {
+    margin-top:2em;
+  bottom: 0;
+  overflow: auto;
+  width: 100%;
+  max-width: 1024px;
+  padding: 1em 1em;
+
+  @media only screen and (max-width: 500px) {
+
+    .pull-left {
+      float: none;
+      text-align: center;
+    }
+
+    .pull-right {
+      float: none;
+      text-align: center;
+    }
+  }
+}
+
+.logo {
+  max-width: 300px;
+
+  @media only screen and (max-width: 500px) {
+    max-width: 150px;
+  }
+}
+
+.footer-links {
+  font-size: xx-small;
+  padding-top: 25px;
+
+  @media only screen and (max-width: 500px) {
+    padding-top: 15px;
+  }
+}

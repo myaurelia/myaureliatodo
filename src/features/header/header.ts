@@ -7,15 +7,11 @@ export class Header {
   private homeLinkText: string;
   private issuesText: string;
   private issueLinkText: string;
+  private isGuestLabel: string;
+  private isVisitorLabel: string;
 
   constructor(private globals: Globals, private be: BindingEngine) {
     this.customTextLoaded(this.globals.customTextLoaded);
-    this.clientIdLoaded(this.globals.clientId);
-    this.be
-      .propertyObserver(globals, 'clientId')
-      .subscribe((newValue) => {
-        this.clientIdLoaded(newValue)
-      });
     this.be
       .propertyObserver(globals, 'customTextLoaded')
       .subscribe((newValue: boolean) => {
@@ -28,14 +24,8 @@ export class Header {
       this.homeLinkText = this.globals.findCustomText("HomeLink");
       this.issuesText = this.globals.findCustomText("HavingIssues");
       this.issueLinkText = this.globals.findCustomText("ReportProblem");
+      this.isGuestLabel = this.globals.findCustomText("Visitor");
+      this.isVisitorLabel = this.globals.findCustomText("Employee");
     }
   }
-
-  clientIdLoaded(newValue) {
-    if (newValue) {
-      this.clientId = newValue;
-    }
-  }
-
-
 }

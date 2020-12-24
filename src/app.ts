@@ -8,7 +8,7 @@ import * as toastr from 'toastr';
 
 @autoinject
 export class App {
-  private language: string = 'es';//window.navigator.language;
+  private language: string = window.navigator.language;
   public router: Router;
 
   constructor(private api: AnonymousApi, private globals: Globals) {
@@ -41,7 +41,7 @@ export class App {
         title: 'Welcome'
       },
       {
-        route: 'error',
+        route: 'error/:code?',
         name: 'error',
         moduleId: PLATFORM.moduleName('./features/error/error'),
         title: 'Error'

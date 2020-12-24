@@ -1,11 +1,10 @@
 <template>
-  <div class="footer">
-    <span class="brand">
-      <img alt="Mobile-Health-logo" src="/Mobile-Health-logo.jpg">
-    </span>
-    <span style="text-align:left;font-size:xx-small;padding-top:30px">
-      <a style="padding-right:5px" href="https://www.mobilehealth.net/terms" rel="noopener noreferrer">${tosLinkText}</a>
-      <a href="https://www.mobilehealth.net/privacy-policy/" rel="noopener noreferrer">${ppLinkText}</a>
-    </span>
-  </div>
+  <require from="./footer.scss"></require>
+  <span class="pull-left footer-links">
+    <a style="padding-right:5px" href="https://www.mobilehealth.net/terms" rel="noopener noreferrer">${tosLinkText}</a>
+    <a href="https://www.mobilehealth.net/privacy-policy/" rel="noopener noreferrer">${ppLinkText}</a>
+  </span>
+  <span class="pull-right">
+    <img class="logo" alt="Mobile-Health-logo" src="/Mobile-Health-logo.jpg">
+  </span>
 </template>

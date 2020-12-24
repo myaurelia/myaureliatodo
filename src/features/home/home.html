@@ -1,8 +1,31 @@
 <template>
-  <section class="company">
-    <img src="${image}" alt="Company Logo" />
+  <require from="./home.scss"></require>
+  <section>
+    <img class="company" src="${image}" alt="Company Logo" />
   </section>
   <section class="welcome">
-      <h2>${welcomeText}, ${companyName}</h2>
+    <h2>${welcomeText}, ${companyName}</h2>
   </section>
+  <section>
+    <div class="form-group  ${selectedLocationClass}">
+      <label class="control-label">${selectLocationLabel}</label>
+      <select class="form-control" id="subclient" value.bind="selectedLocation" required>
+        <option value=""  class="invalid" disabled hidden>-- ${selectLocationLabel} --</option>
+        <option repeat.for="subclient of client.subClients" value="${subclient.id}">${subclient.subClientName}</option>
+      </select>
+      <span class="help-block" show.bind="!selectedLocation && selectedLocationClass">* ${selectedLocationError}</span>
+    </div>
+    <div if.bind="selectedLocation" class="form-group ${selectedCampaignClass}">
+      <label class="control-label">${selectCampaignLabel}</label>
+      <select class="form-control" value.bind="selectedCampaign" required>
+        <option repeat.for="campaign of campaigns" value="${campaign.id}">${campaign.campName}</option>
+      </select>
+      <span class="help-block" show.bind="!selectedCampaign && selectedCampaignClass">* ${selectedCampaignError}</span>
+    </div>
+  </section>
+  <section>
+    <button class="btn btn-primary pull-left fourty" click.delegate="start(false)" disabled.bind="!selectedCampaign">${visitorButtonText}</button>
+    <button class="btn btn-primary pull-right fourty" click.delegate="start(true)" disabled.bind="!selectedCampaign">${guestButtonText}</button>
+  </section>
+  <div class="clearfix"></div>
 </template>

@@ -1,11 +1,18 @@
-.app-header {
-  margin: 1em;
+header {
+  overflow: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0 1em;
+
   @media only screen and (max-width: 500px) {
+    padding: 0 0;
+
     .pull-left {
       float: none;
       text-align: center;
       width: 100%;
     }
+
     .pull-right {
       float: none;
       text-align: center;

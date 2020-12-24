@@ -24,10 +24,9 @@ export class BaseApi {
             return response;
           },
           responseError(error, request, response) {
-            if (error.status > 204) {
+            if (error) {
               toastr.error(`Api Error`);
             }
-            console.error({ error });
             return Promise.reject(error);
           }
         });
