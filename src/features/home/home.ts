@@ -71,9 +71,11 @@ export class Home {
   async locationChanged(subclientId: string): Promise<void> {
     if (subclientId) {
       const subclient = this.client.subClients.find(sc => sc.id === subclientId);
-      const nameValues = JSON.parse(subclient.nameValues) as NameValues;
-      this.registeredUserButtonText = this.globals.findCustomText(nameValues.FullValue);
-      this.globals.breadcrumbLabel = this.registeredUserButtonText;
+      if (subclient.nameValues) {
+        const nameValues = JSON.parse(subclient.nameValues) as NameValues;
+        this.registeredUserButtonText = this.globals.findCustomText(nameValues.FullValue);
+        this.globals.breadcrumbLabel = this.registeredUserButtonText;
+      }
       this.campaigns = await this.api.getCampaigns(subclientId);
       this.selectedLocationClass = "has-success";
       if (!this.campaigns.length) {

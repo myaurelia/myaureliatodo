@@ -1,5 +1,5 @@
 import { autoinject } from 'aurelia-framework';
-import { HttpClient, json } from "aurelia-fetch-client";
+import { HttpClient } from "aurelia-fetch-client";
 import { Globals } from '../../globals';
 import { BaseApi } from './base-api';
 import { CustomText, Client, Campaign } from '../../models/models';
