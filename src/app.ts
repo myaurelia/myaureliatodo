@@ -8,7 +8,7 @@ import * as toastr from 'toastr';
 
 @autoinject
 export class App {
-  private language: string = window.navigator.language;
+  private language: string = 'es';//window.navigator.language;
   public router: Router;
 
   constructor(private api: AnonymousApi, private globals: Globals) {
@@ -18,12 +18,17 @@ export class App {
 
   }
 
-  activate(params, routeConfig, navigationInstruction) { }
+  async activate(params, routeConfig, navigationInstruction) {
+    
+  }
 
   private async loadCustomText() {
     const customTexts = await this.api.getCustomText(this.language);
     this.globals.customTextList = customTexts;
     this.globals.customTextLoaded = true;
+    this.router.routes.forEach(route => {
+        route.navModel.setTitle(this.globals.findCustomText(route.title));
+    });
   }
 
   public configureRouter(config: RouterConfiguration, router: Router) {
@@ -39,6 +44,11 @@ export class App {
         name: 'home',
         moduleId: PLATFORM.moduleName('./features/home/home'),
         title: 'Welcome'
+      }, {
+        route: 'identity',
+        name: 'identity',
+        moduleId: PLATFORM.moduleName('./features/identity/identity'),
+        title: 'Begin'
       },
       {
         route: 'error/:code?',
