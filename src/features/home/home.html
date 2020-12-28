@@ -7,9 +7,9 @@
     <h2>${welcomeText}, ${companyName}</h2>
   </section>
   <section>
-    <div class="form-group  ${selectedLocationClass}">
+    <div class="form-group ${selectedLocationClass}">
       <label class="control-label">${selectLocationLabel}</label>
-      <select class="form-control" id="subclient" value.bind="selectedLocation" required>
+      <select class="form-control" value.bind="selectedLocation" required>
         <option value=""  class="invalid" disabled hidden>-- ${selectLocationLabel} --</option>
         <option repeat.for="subclient of client.subClients" value="${subclient.id}">${subclient.subClientName}</option>
       </select>

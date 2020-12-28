@@ -45,10 +45,10 @@ export class App {
         moduleId: PLATFORM.moduleName('./features/home/home'),
         title: 'Welcome'
       }, {
-        route: 'identity',
-        name: 'identity',
-        moduleId: PLATFORM.moduleName('./features/identity/identity'),
-        title: 'Begin'
+        route: 'entry-check',
+        name: 'entry-check',
+        moduleId: PLATFORM.moduleName('./features/entry-check/entry-check'),
+        title: 'EntryCheck'
       },
       {
         route: 'error/:code?',

@@ -3,7 +3,7 @@ import { autoinject, bindable, BindingEngine} from 'aurelia-framework';
 import { Globals } from '../../globals';
 import { Campaign, Client, NameValues } from '../../models/models';
 import { Router } from 'aurelia-router';
-
+import * as toastr from 'toastr';
 
 @autoinject
 export class Home {
@@ -46,6 +46,7 @@ export class Home {
   }
 
   private async getClient(clientId: string): Promise<void> {
+    this.globals.clearState();
     this.api.getClient(clientId).then((client) => {
       this.client = client;
       this.globals.clientId = client.id;
@@ -106,6 +107,10 @@ export class Home {
         this.client.subClients.find((sc) => sc.id === this.selectedLocation),
         this.campaigns.find((camp) => camp.id === this.selectedCampaign),
         isGuest);
+      this.router.navigateToRoute("entry-check");
+    } else {
+      toastr.error(`Complete all required fields before continuing.`);
     }
+    
   }
 }

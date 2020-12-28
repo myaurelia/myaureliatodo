@@ -41,6 +41,14 @@ export class Globals {
     }
   }
 
+  public clearState() {
+    this.client = null;
+    this.location = null;
+    this.campaign = null;
+    this.isGuest = null;
+    sessionStorage.clear();
+  }
+
   public saveState(client: Client, location: SubClient, campaign: Campaign, isGuest: boolean): void {
     this.client = client;
     this.location = location;
