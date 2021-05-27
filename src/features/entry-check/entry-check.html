@@ -13,8 +13,8 @@
       <span class="help-block" show.bind="!firstName && firstNameClass">* ${lastNameRequired}</span>
     </div>
     <div class="form-group">
-      <label class="control-label">${EmployeeIdLabel}</label>
-      <label class="control-label">${CompanyNameLabel}</label>
+      <label class="control-label" if.bind="!globals.isGuest">${EmployeeIdLabel}</label>
+      <label class="control-label" if.bind="globals.isGuest">${CompanyNameLabel}</label>
       <input type="text" class="form-control" />
     </div>
     <div class="form-group ${dateOfBirthClass}">
