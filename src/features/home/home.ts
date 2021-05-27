@@ -22,10 +22,10 @@ export class Home {
   private selectedCampaignError: string;
 
   @bindable({ changeHandler: 'locationChanged' })
-  private selectedLocation: string = "";
+  private selectedLocation = "";
 
   @bindable({ changeHandler: 'campaignChanged' })
-  private selectedCampaign: string = "";
+  private selectedCampaign = "";
 
   constructor(
     private api: AnonymousApi,
@@ -73,8 +73,7 @@ export class Home {
     if (subclientId) {
       const subclient = this.client.subClients.find(sc => sc.id === subclientId);
       if (subclient.nameValues) {
-        const nameValues = JSON.parse(subclient.nameValues) as NameValues;
-        this.registeredUserButtonText = this.globals.findCustomText(nameValues.FullValue);
+        this.registeredUserButtonText = this.globals.findCustomText(subclient.nameValues.FullValue);
         this.globals.breadcrumbLabel = this.registeredUserButtonText;
       }
       this.campaigns = await this.api.getCampaigns(subclientId);

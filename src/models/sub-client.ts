@@ -1,3 +1,5 @@
+import { NameValues } from "./name-values";
+
 export interface SubClient {
   id: string;
   clientId: string;
@@ -10,5 +12,5 @@ export interface SubClient {
   street1: string;
   street2: string;
   zip: string;
-  nameValues: string;
+  nameValues: NameValues;
 }
